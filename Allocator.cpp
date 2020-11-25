@@ -205,7 +205,7 @@ void* Allocator::mem_realloc(void* address, size_t size)
 	uint8_t* currPage = pagePtr;
 	for (int i = 1; i <= newPageNum; i++) {
 		if (i >= oldPageNum) {
-			pageDescriptions[currPage].ptrToFirstFree = newPageNum == i ? NULL : (uint8_t*)freePages[0];
+			pageDescriptions[currPage].ptrToFirstFree = newPageNum == i ? nullptr : (uint8_t*)freePages[0];
 			freePages.erase(freePages.begin());
 		}
 		setPageDescription(currPage, MultiPageBlock, newPageNum * PAGE_SIZE, newPageNum - i, pageDescriptions[currPage].ptrToFirstFree);
